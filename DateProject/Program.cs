@@ -30,12 +30,12 @@ namespace DateProject
                 date2 = date2 / 10;
                 counter++;
             }
-            int year1 = d1array[7] + (d1array[6] * 10) + (d1array[5] * 100) + (d1array[4] * 1000);
-            int year2 = d2array[7] + (d2array[6] * 10) + (d2array[5] * 100) + (d2array[4] * 1000);
-            int day1 = d1array[3] + (d1array[2] * 10);
-            int day2 = d2array[3] + (d2array[2] * 10);
-            int month1 = d1array[1] + (d1array[0] * 10);
-            int month2 = d2array[1] + (d2array[0] * 10);
+            int year1 = d1array[0] + (d1array[1] * 10) + (d1array[2] * 100) + (d1array[3] * 1000); Console.WriteLine(year1);
+            int year2 = d2array[0] + (d2array[1] * 10) + (d2array[2] * 100) + (d2array[3] * 1000); Console.WriteLine(year2);
+            int day1 = d1array[5] + (d1array[4] * 10); Console.WriteLine(day1);
+            int day2 = d2array[5] + (d2array[4] * 10); Console.WriteLine(day2);
+            int month1 = d1array[6] + (d1array[7] * 10); Console.WriteLine(month1);
+            int month2 = d2array[6] + (d2array[7] * 10); Console.WriteLine(month2);
             int monthdays1 = 0;
             int monthdays2 = 0;
             switch (month1)
@@ -122,6 +122,8 @@ namespace DateProject
 //                    Console.WriteLine("Error in input");
 //                    break;
             }
+            Console.WriteLine(monthdays1);
+            Console.WriteLine(monthdays2);
             int totalDate1 = year1 + monthdays1 + day1;
             int totalDate2 = year2 + monthdays2 + day2;
             int diffDate = totalDate1 - totalDate2;
