@@ -11,9 +11,9 @@ namespace DateProject
         
         static void Main()
         {
-            DateTime dtToday = new System.DateTime(2012, 6, 2, 0, 0, 0);
-            DateTime dtMonthBefore = new System.DateTime(2012, 5, 2, 0, 0, 0);
-            TimeSpan diffResult = dtToday.Subtract(dtMonthBefore);
+            DateTime firstDate = new System.DateTime(2012, 6, 2, 0, 0, 0);
+            DateTime secondDate = new System.DateTime(2012, 5, 2, 0, 0, 0);
+            TimeSpan diffResult = firstDate - secondDate;
             int diffDate = Convert.ToInt32(diffResult.TotalDays);
             int yearsDiff = diffDate / 365;
             int monthsDiff = (diffDate - (yearsDiff*365))/30;
