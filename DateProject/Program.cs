@@ -90,16 +90,22 @@ namespace DateProject
         }
         static void Main()
         {
-            int [] inputarray1 = dateCheck();
-            int [] inputarray2 = dateCheck();
-            DateTime firstDate = new System.DateTime(getYear(inputarray1), getMonth(inputarray1), getDay(inputarray1), 0, 0, 0);
-            DateTime secondDate = new System.DateTime(getYear(inputarray2), getMonth(inputarray2), getDay(inputarray2), 0, 0, 0);
+            int [] inputArray1 = dateCheck(); // Get the start and end date. Doesn't matter which is greater.
+            int [] inputArray2 = dateCheck();
+            // I found the next 3 lines as a result of a Google search. 
+            // I wrote code that basically does this in a prior commit but this works better.
+            DateTime firstDate = new System.DateTime(getYear(inputArray1), getMonth(inputArray1), getDay(inputArray1), 0, 0, 0);
+            DateTime secondDate = new System.DateTime(getYear(inputArray2), getMonth(inputArray2), getDay(inputArray2), 0, 0, 0);
             TimeSpan diffResult = firstDate - secondDate;
             int diffDate = Convert.ToInt32(Math.Abs(diffResult.TotalDays));
             int yearsDiff = diffDate / 365;
             int monthsDiff = (diffDate - (yearsDiff*365))/30;
             int daysDiff = (diffDate - (yearsDiff * 365) - (monthsDiff * 30));
-            Console.Write("The difference is {0} years, {1} months, and {2} days.",yearsDiff,monthsDiff,daysDiff);
+            // This is always going to be really inaccurate, as timespan takes things 
+            // like a non-averaged month length and leap years into account.
+            // I would need a hint on the logic to make this work in any real way.
+            Console.WriteLine("The difference is {0} years, {1} months, and {2} days.",yearsDiff,monthsDiff,daysDiff);
+            Console.WriteLine("That's it. Press Enter to continue.");
             Console.Read();
         }
     }
