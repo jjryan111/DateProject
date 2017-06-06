@@ -11,21 +11,17 @@ namespace DateProject
     static DateTime getInput()
         {
             string inputString = "";
-            bool badDate = true;
+            bool goodDate = false;
             DateTime checkedDate = new System.DateTime(1900,01,01,0,0,0);
-            while (badDate)
+            while (!goodDate)
             {
-                badDate = false;
+                goodDate = true;
                 Console.Write("Enter date: ");
                 inputString = Console.ReadLine();
-                try
-                {
-                    checkedDate = Convert.ToDateTime(inputString);
-                }
-                catch (Exception)
-                {
-                    badDate = true;
-                    Console.WriteLine("That's not a date!");
+                goodDate = DateTime.TryParse(inputString, out checkedDate);
+                if (!goodDate)
+                { 
+                Console.WriteLine("That's not a date!");
                 }
             }
             checkedDate = Convert.ToDateTime(inputString);
